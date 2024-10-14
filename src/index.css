@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap');
+
+/* Styling the Scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+    height: 8px; /* Height of the scrollbar for horizontal scroll */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #111213; /* Background of the scrollbar track */
+    border-radius: 10px; /* Rounded corners for the scrollbar track */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #2ED3B7; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+    border: 2px solid #0C0C0D; /* Padding around the thumb to give spacing */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #22CCEE; /* Brighter color on hover */
+  }
+  
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #2ED3B7 #111213;
+  }
+  
+  /* Hide horizontal scrollbar */
+  html {
+    overflow-x: hidden;
+  }
