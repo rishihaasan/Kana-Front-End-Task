@@ -45,7 +45,7 @@ const AssetSelector = () => {
         {/* Asset Selector Dropdown */}
         <div className="relative">
           <div
-            className="flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg bg-[rgba(45,45,48,1)] text-white w-[180px] h-12 font-manrope font-bold text-sm"
+            className="flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg bg-grey-600 text-white w-[180px] h-12 font-manrope font-bold text-sm"
             onClick={toggleAssetDropdown}
           >
             <div className="flex items-center">
@@ -79,7 +79,7 @@ const AssetSelector = () => {
         {/* Cycle Selector Dropdown */}
         <div className="relative">
           <div
-            className="flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg bg-[rgba(45,45,48,1)] text-white w-[180px] h-12 font-manrope text-sm font-normal"
+            className="flex items-center justify-between cursor-pointer px-4 py-2 rounded-lg bg-grey-600 text-white w-[180px] h-12 font-manrope text-sm font-normal"
             onClick={toggleCycleDropdown}
           >
             <span>{selectedCycle}</span>
@@ -105,7 +105,7 @@ const AssetSelector = () => {
           <button
             className={`px-6 py-2 font-semibold ${position === 'long'
               ? 'bg-primary text-white'
-              : 'bg-[rgba(45,45,48,1)] text-gray-400'
+              : 'bg-grey-600 text-gray-400'
               }`}
             onClick={() => setPosition('long')}
           >
@@ -115,7 +115,7 @@ const AssetSelector = () => {
           <button
             className={`px-6 py-2 font-semibold ${position === 'short'
               ? 'bg-primary text-white'
-              : 'bg-[rgba(45,45,48,1)] text-gray-400'
+              : 'bg-grey-600 text-gray-400'
               }`}
             onClick={() => setPosition('short')}
           >

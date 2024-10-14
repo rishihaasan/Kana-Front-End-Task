@@ -59,8 +59,8 @@ const SwapPage = () => {
                         <button
                             onClick={() => setActiveTab('same-chain')}
                             className={`flex items-center px-4 py-2 ${activeTab === 'same-chain'
-                                ? 'bg-[rgba(255,255,255,0.06)] text-white'
-                                : 'bg-[#111213] text-[#A5A5A6]'
+                                ? 'bg-white-01 text-white'
+                                : 'bg-gray-800 text-secondary'
                                 } rounded-t-lg`}
                             style={{
                                 fontFamily: 'Manrope',
@@ -79,8 +79,8 @@ const SwapPage = () => {
                         <button
                             onClick={() => setActiveTab('cross-chain')}
                             className={`flex items-center px-4 py-2 ${activeTab === 'cross-chain'
-                                ? 'bg-[rgba(255,255,255,0.06)] text-white'
-                                : 'bg-[#111213] text-[#A5A5A6]'
+                                ? 'bg-white-01 text-white'
+                                : 'bg-gray-800 text-secondary'
                                 } rounded-t-lg`}
                             style={{
                                 fontFamily: 'Manrope',
@@ -249,30 +249,57 @@ const SwapPage = () => {
             </div>
 
             {/* Additional Details Section */}
-            <div className="bg-gray-700 shadow-custom-card border border-stroke backdrop-blur-md mt-4 rounded-lg p-4 w-full max-w-lg">
-                <div className="flex justify-between items-center cursor-pointer" onClick={toggleExpand}>
-                    <div className="text-secondary text-sm">Additional details</div>
-                    <img src={toggleIcon} alt="Toggle" className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'}`} />
+            <div className="bg-gray-800 border border-stroke mt-4 rounded-lg p-6 w-full max-w-lg">
+                {/* Header section with collapse/expand icon */}
+                <div
+                    className="flex justify-between items-center cursor-pointer"
+                    onClick={toggleExpand}
+                >
+                    <div className="text-left font-manrope text-sm font-normal leading-5 text-color-4">
+                        Additional details
+                    </div>
+                    <img
+                        src={toggleIcon}
+                        alt="Toggle"
+                        className={`w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : 'rotate-0'
+                            }`}
+                    />
                 </div>
 
-                {isExpanded && (
+                {/* Animated expandable content */}
+                <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                >
+                    <hr className="my-2 border-gray-600" />
                     <div className="mt-4 text-secondary">
-                        <div className="border-t border-stroke mt-4"></div>
                         <div className="flex justify-between">
-                            <span className="text-sm">Minimum Received</span>
-                            <span className="text-sm">0.00</span>
+                            <span className="text-sm font-manrope font-normal leading-5 text-color-4">
+                                Minimum Received
+                            </span>
+                            <span className="text-sm font-manrope font-normal leading-5 text-color-4">
+                                0.00
+                            </span>
                         </div>
                         <div className="flex justify-between mt-2">
-                            <span className="text-sm">Transaction Fee</span>
-                            <span className="text-sm">0.00</span>
+                            <span className="text-sm font-manrope font-normal leading-5 text-color-4">
+                                Transaction Fee
+                            </span>
+                            <span className="text-sm font-manrope font-normal leading-5 text-color-4">
+                                0.00
+                            </span>
                         </div>
                         <div className="mt-4">
-                            <a href="#" className="text-primary font-bold text-xs flex items-center">
-                                More routes <span className="ml-1">↗</span>
+                            <a
+                                href="#"
+                                className="flex items-center text-xs font-bold font-manrope leading-4 text-primary"
+                            >
+                                More routes
+                                <span className="ml-1">↗</span>
                             </a>
                         </div>
                     </div>
-                )}
+                </div>
             </div>
         </div>
     );

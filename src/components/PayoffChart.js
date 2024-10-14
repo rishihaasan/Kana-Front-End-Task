@@ -77,14 +77,14 @@ const PayoffChart = () => {
   };
 
   return (
-    <div className="bg-[#111213] rounded-lg shadow-md">
+    <div className="bg-gray-800 rounded-lg shadow-md">
       {/* Tabs */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-4">
           <button
             onClick={() => setActiveTab('payoff')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'payoff' ? 'text-white font-bold bg-[rgba(255,255,255,0.06)]' : 'text-[#A5A5A6] font-normal bg-[#111213]'
+              activeTab === 'payoff' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
             } text-[12px] font-manrope leading-[18px]`}
           >
             Payoff chart
@@ -93,7 +93,7 @@ const PayoffChart = () => {
           <button
             onClick={() => setActiveTab('previousCycles')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'previousCycles' ? 'text-white font-bold bg-[rgba(255,255,255,0.06)]' : 'text-[#A5A5A6] font-normal bg-[#111213]'
+              activeTab === 'previousCycles' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
             } text-[12px] font-manrope leading-[18px]`}
           >
             Previous Cycles
@@ -102,7 +102,7 @@ const PayoffChart = () => {
           <button
             onClick={() => setActiveTab('poolOverview')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'poolOverview' ? 'text-white font-bold bg-[rgba(255,255,255,0.06)]' : 'text-[#A5A5A6] font-normal bg-[#111213]'
+              activeTab === 'poolOverview' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
             } text-[12px] font-manrope leading-[18px]`}
           >
             Pool Overview
@@ -125,7 +125,7 @@ const PayoffChart = () => {
         </div>
 
         {/* X-axis line */}
-        <div className="absolute bottom-4 left-3 right-3 border-t border-[#FFFFFFCC]" style={{ height: '1px' }} />
+        <div className="absolute bottom-4 left-3 right-3 border-t border-text-color-2" style={{ height: '1px' }} />
 
         {/* Vertical line at ETH price */}
         <div className="absolute right-[calc(50%+16px)] top-12 bottom-4 border-l border-white" style={{ width: '1px' }} />
@@ -134,10 +134,10 @@ const PayoffChart = () => {
       {/* Max profit and Entry Price Labels */}
       <div className="m-4 pb-2">
         <div className="text-white">
-          <span className="block text-sm text-[#A5A5A6] text-left text-[14px] font-manrope font-normal leading-[20px]">
+          <span className="block text-sm text-secondary text-left text-[14px] font-manrope font-normal leading-[20px]">
             Max profit
           </span>
-          <span className="block text-sm text-[#A5A5A6] text-left text-[14px] font-manrope font-normal leading-[20px]">
+          <span className="block text-sm text-secondary text-left text-[14px] font-manrope font-normal leading-[20px]">
             Entry Price (Break-Even)
           </span>
         </div>

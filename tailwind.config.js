@@ -1,28 +1,30 @@
 module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'], // Adjust the path if needed
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
-        // Define custom colors used throughout your application
+        'grey': '#1d1e20cc',
+        'grey-600': '#2d2d30',
         'gray-800': '#111213',
         'gray-700': '#17181A',
         'primary': '#2ED3B7',
         'secondary': '#A5A5A6',
         'background': '#0C0C0D',
         'topbar-btn': '#1D1E20',
-        'stroke': '#FFFFFF1A', // Custom stroke color
+        'stroke': '#FFFFFF1A',
         'hover': '#00FFFF1A',
+        'white-01': '#ffffff0f',
         'text-color-2': '#FFFFFFCC',
         'color-4': '#777879',
-        stroke: 'rgba(255, 255, 255, 0.1)', // For border-stroke
-        'button-cta-2': '#22CCEE', // Text color for the buttons
-        'cyan-600': '#088AB2', // Border color 
+        stroke: 'rgba(255, 255, 255, 0.1)', 
+        'button-cta-2': '#22CCEE',
+        'cyan-600': '#088AB2',
         'tab-color':'#FFFFFF0F',
         'hover-color':'#1db7d5',
         'secondary-hover-color':'#24b19b',
+        'green':'#12B76A'
       },
       spacing: {
-        // Custom spacing used for padding, margins, etc.
         '10px': '10px',
         '12px': '12px',
         '16px': '16px',
@@ -30,12 +32,10 @@ module.exports = {
         '40px': '40px',
       },
       fontFamily: {
-        // Define custom fonts
-        Inter: ['Inter', 'sans-serif'], // For Inter font
+        Inter: ['Inter', 'sans-serif'],
         manrope: ['Manrope', 'sans-serif'],
       },
       boxShadow: {
-        // Custom shadows
         'button-shadow': '0px 10px 8px 0px #00FFFF1A, 0px 4px 8px 0px #00000026, 0px 5px 0px 0px #0E9384',
         'button-shadow-btn': '0px 10px 8px 0px #00FFFF1A, 0px 4px 8px 0px #00000026, 0px 5px 0px 0px #088AB2',
         'custom-card': '0px 4px 20px -8px rgba(228, 242, 243, 0.1)',

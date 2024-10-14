@@ -74,7 +74,7 @@ const OpenOrdersTable = () => {
                 <div className="text-sm font-manrope font-normal leading-5">{order.market}</div>
                 <div className="flex items-center text-xs font-manrope font-normal leading-4 text-gray-400">
                   <span>Put •</span>
-                  <span className="ml-1 text-[#12B76A]">{order.leverage}</span>
+                  <span className="ml-1 text-green">{order.leverage}</span>
                 </div>
               </td>
               {/* Side */}

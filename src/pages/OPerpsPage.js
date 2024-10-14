@@ -9,7 +9,7 @@ const OPerpsPage = () => {
   const [selectedAsset, setSelectedAsset] = useState({ label: 'ETH BSC', value: 'eth_bsc' });
 
   return (
-    <div className="p-4 text-white bg-[#0C0C0D] min-h-screen flex flex-col space-y-6">
+    <div className="p-4 text-white bg-background min-h-screen flex flex-col space-y-6">
       {/* Responsive Container */}
       <div className="flex flex-col lg:flex-row flex-1 space-y-6 lg:space-y-0 lg:space-x-6">
         {/* Left Side: Cycle and Chart */}
