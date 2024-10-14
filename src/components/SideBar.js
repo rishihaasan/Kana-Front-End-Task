@@ -30,11 +30,10 @@ const Sidebar = ({ handlePageChange }) => {
 
   return (
     <div
-      className={`h-screen bg-gray-900 flex flex-col justify-between ${isExpanded ? 'w-48' : 'w-16'} transition-all duration-300`}
+      className={`h-screen bg-gray-900 flex flex-col justify-between ${isExpanded ? 'w-48' : 'w-16'} transition-width duration-300`}
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
-      {/* Logo */}
       <div className={`flex items-center ${isExpanded ? 'justify-start pl-4' : 'justify-center'} py-4`}>
         <img src={logoIcon} alt="Logo" className="w-12 h-12 transition-all duration-300" />
         {isExpanded && (
@@ -47,23 +46,25 @@ const Sidebar = ({ handlePageChange }) => {
         )}
       </div>
 
-      {/* Menu Items */}
-      <div className="flex flex-col space-y-4 px-2">
+      <div className="flex flex-col space-y-4" style={{ padding: '10px', transition: 'all 0.3s ease-in-out' }}>
         {icons.map((item, index) => (
-          <div key={index}>
+          <div key={index} className="w-full">
             <button
               onClick={() => {
-                setActiveIndex(index); 
+                setActiveIndex(index);
                 handlePageChange(item.page);
               }}
-              className={`flex items-center justify-between p-2 rounded-md transition-all duration-300 ${
-                activeIndex === index ? 'bg-gray-800 text-white' : 'text-gray-400 hover:bg-gray-700 hover:text-white'
+              className={`p-2 rounded-md flex items-center justify-center transition-all duration-300 w-full ${
+                index === activeIndex ? 'bg-tab-color' : 'hover:bg-gray-800'
               }`}
+              style={{ padding: '10px' }}
             >
-              <div className="flex items-center">
-                <item.icon className="w-6 h-6" />
+              <div className={`flex items-center ${isExpanded ? 'justify-start pl-4' : 'justify-center'} w-full`}>
+                <item.icon className={`w-6 h-6 transition-all duration-300 ${index === activeIndex ? 'text-white' : 'text-gray-400'}`} />
                 {isExpanded && (
-                  <span className="ml-2 text-sm">{item.label}</span>
+                  <span className="text-white text-sm ml-2" style={{ paddingRight: '10px' }}>
+                    {item.label}
+                  </span>
                 )}
               </div>
               {item.isDropdown && isExpanded && (
@@ -73,24 +74,22 @@ const Sidebar = ({ handlePageChange }) => {
                 />
               )}
             </button>
-
-            {/* Dropdown for "Others" */}
             {item.isDropdown && isExpanded && isOthersOpen && (
-              <div className="ml-8 mt-2 flex flex-col space-y-2">
-                <button className="text-sm text-gray-400 hover:text-white flex items-center">
-                  <LeaderboardIcon className="w-5 h-5 mr-2" />
+              <div className="ml-8 flex flex-col space-y-2">
+                <button className="flex items-center text-sm text-gray-400 hover:text-white">
+                  <LeaderboardIcon className="w-4 h-4 mr-2" />
                   Leaderboard
                 </button>
-                <button className="text-sm text-gray-400 hover:text-white flex items-center">
-                  <LearnIcon className="w-5 h-5 mr-2" />
+                <button className="flex items-center text-sm text-gray-400 hover:text-white">
+                  <LearnIcon className="w-4 h-4 mr-2" />
                   Learn
                 </button>
-                <button className="text-sm text-gray-400 hover:text-white flex items-center">
-                  <CommunityIcon className="w-5 h-5 mr-2" />
+                <button className="flex items-center text-sm text-gray-400 hover:text-white">
+                  <CommunityIcon className="w-4 h-4 mr-2" />
                   Community
                 </button>
-                <button className="text-sm text-gray-400 hover:text-white flex items-center">
-                  <ReferralIcon className="w-5 h-5 mr-2" />
+                <button className="flex items-center text-sm text-gray-400 hover:text-white">
+                  <ReferralIcon className="w-4 h-4 mr-2" />
                   Referral
                 </button>
               </div>
@@ -99,15 +98,15 @@ const Sidebar = ({ handlePageChange }) => {
         ))}
       </div>
 
-      {/* Help Button */}
-      <div className={`flex items-center ${isExpanded ? 'justify-start pl-4' : 'justify-center'} mb-4`}>
+      <div className={`flex ${isExpanded ? 'justify-start pl-4' : 'justify-center'} mb-4`} style={{ padding: '10px' }}>
         <button
-          className="p-2 rounded-md flex items-center hover:bg-gray-700"
-        >
-          <IconHelp className="w-6 h-6 text-gray-400 hover:text-white" />
-          {isExpanded && (
-            <span className="ml-2 text-sm text-white">Help</span>
-          )}
+          className="p-2 rounded-md transition-all duration-200 w-full hover:bg-gray-700" style={{ backgroundColor: '#111213' }}>
+          <div className="flex items-center" style={{ padding: '5px', borderRadius: '10px' }}>
+            <IconHelp className="w-6 h-6 text-gray-400 hover:text-white" />
+            {isExpanded && (
+              <span className="text-white text-sm ml-2" style={{ paddingRight: '10px' }}>Help</span>
+            )}
+          </div>
         </button>
       </div>
     </div>
