@@ -80,7 +80,7 @@ const PayoffChart = () => {
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md p-4">
+    <div className="bg-gray-800 rounded-lg shadow-md">
       {/* Tabs */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-4">

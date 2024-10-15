@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import TopBar from './components/TopBar';
 import Sidebar from './components/SideBar';
-import OPerpsPage from './pages/OPerpsPage'; 
+import OPerpsPage from './pages/OPerpsPage';
 import SwapPage from './pages/SwapPage';
 import UnderConstruction from './components/UnderConstruction';
 
 const App = () => {
   const [activePage, setActivePage] = useState('swap'); // Default to swap page
 
-  // On component mount, check for an active page in localStorage
+  // On component mount, check for an active page in sessionStorage
   useEffect(() => {
     const savedPage = sessionStorage.getItem('activePage');
     if (savedPage) {
@@ -19,7 +19,25 @@ const App = () => {
   // Function to toggle between pages
   const handlePageChange = (page) => {
     setActivePage(page);
-    sessionStorage.setItem('activePage', page); // Save the active page to localStorage
+    sessionStorage.setItem('activePage', page); // Save the active page to sessionStorage
+  };
+
+  // Function to render the active page based on switch case
+  const renderActivePage = (page) => {
+    switch (page) {
+      case 'swap':
+        return <SwapPage />;
+      case 'OPerps':
+        return <OPerpsPage />;
+      case 'stake':
+        return <UnderConstruction pageName="Stake Page" />;
+      case 'yield':
+        return <UnderConstruction pageName="Yield Page" />;
+      case 'trade':
+        return <UnderConstruction pageName="Trade Page" />;
+      default:
+        return <SwapPage />; // Default to SwapPage if the page is not recognized
+    }
   };
 
   return (
@@ -34,11 +52,7 @@ const App = () => {
 
         {/* Page Content */}
         <div className="flex-grow p-4 overflow-y-auto bg-background">
-          {activePage === 'swap' && <SwapPage />}
-          {activePage === 'OPerps' && <OPerpsPage />}
-          {activePage === 'stake' && <UnderConstruction pageName="Stake Page" />}
-          {activePage === 'yield' && <UnderConstruction pageName="Yield Page" />}
-          {activePage === 'trade' && <UnderConstruction pageName="Trade Page" />}
+          {renderActivePage(activePage)}
         </div>
       </div>
     </div>

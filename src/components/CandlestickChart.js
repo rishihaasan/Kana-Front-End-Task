@@ -21,7 +21,7 @@ const CandlestickChart = () => {
           { x: new Date('2024-10-12T14:00:00'), o: 2965, h: 2990, l: 2950, c: 2970 },
         ],
         borderColor: '#2ED3B7',
-        backgroundColor: 'rgba(46, 211, 183, 0.5)',
+        backgroundColor: '#0E93841A',
         color: {
           up: '#2ED3B7',
           down: '#FF4B4B',

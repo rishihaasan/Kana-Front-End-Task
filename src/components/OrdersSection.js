@@ -15,7 +15,7 @@ const OrdersSection = () => {
   return (
     <div className="bg-gray-800 rounded-lg shadow-lg border border-gray-700">
       {/* Tab Headers */}
-      <div className="flex justify-between items-center mb-2 px-4">
+      <div className="flex justify-between items-center mb-2 pr-2">
         {/* Tabs */}
         <div className="flex space-x-2 sm:space-x-4 overflow-x-auto">
           <button
