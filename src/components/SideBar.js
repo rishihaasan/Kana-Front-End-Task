@@ -40,8 +40,6 @@ const Sidebar = ({ handlePageChange }) => {
   const handleIconClick = (index, page) => {
     setActiveIndex(index);
     handlePageChange(page);
-
-    // Save the active index to sessionStorage
     sessionStorage.setItem('activeIconIndex', index);
   };
 
@@ -51,34 +49,28 @@ const Sidebar = ({ handlePageChange }) => {
       onMouseEnter={() => setIsExpanded(true)}
       onMouseLeave={() => setIsExpanded(false)}
     >
+      {/* Logo Section */}
       <div className={`flex items-center ${isExpanded ? 'justify-start pl-4' : 'justify-center'} py-4`}>
         <img src={logoIcon} alt="Logo" className="w-12 h-12 transition-all duration-300" />
         {isExpanded && (
-          <img
-            src={kanalabsTextLogo}
-            alt="kanalabs"
-            className="ml-2 transition-all duration-300"
-            style={{ width: '80px', height: 'auto' }}
-          />
+          <img src={kanalabsTextLogo} alt="kanalabs" className="ml-2 transition-all duration-300 w-20" />
         )}
       </div>
 
-      <div className="flex flex-col space-y-4" style={{ padding: '10px', transition: 'all 0.3s ease-in-out' }}>
+      {/* Icons Section */}
+      <div className="flex flex-col space-y-4 p-2 transition-all duration-300">
         {icons.map((item, index) => (
           <div key={index} className="w-full">
             <button
-              onClick={() => handleIconClick(index, item.page)} // Call the new function
+              onClick={() => handleIconClick(index, item.page)}
               className={`p-2 rounded-md flex items-center justify-center transition-all duration-300 w-full ${
                 index === activeIndex ? 'bg-tab-color' : 'hover:bg-gray-800'
               }`}
-              style={{ padding: '10px' }}
             >
               <div className={`flex items-center ${isExpanded ? 'justify-start pl-4' : 'justify-center'} w-full`}>
                 <item.icon className={`w-6 h-6 transition-all duration-300 ${index === activeIndex ? 'text-white' : 'text-gray-400'}`} />
                 {isExpanded && (
-                  <span className="text-white text-sm ml-2" style={{ paddingRight: '10px' }}>
-                    {item.label}
-                  </span>
+                  <span className="text-white text-sm ml-2">{item.label}</span>
                 )}
               </div>
               {item.isDropdown && isExpanded && (
@@ -112,12 +104,13 @@ const Sidebar = ({ handlePageChange }) => {
         ))}
       </div>
 
-      <div className={`flex ${isExpanded ? 'justify-start pl-4' : 'justify-center'} mb-4`} style={{ padding: '10px' }}>
-        <button className="p-2 rounded-md transition-all duration-200 w-full hover:bg-gray-700" style={{ backgroundColor: '#111213' }}>
-          <div className="flex items-center" style={{ padding: '5px', borderRadius: '10px' }}>
+      {/* Help Section */}
+      <div className={`flex ${isExpanded ? 'justify-start pl-4' : 'justify-center'} mb-4 p-2`}>
+        <button className="p-2 rounded-md transition-all duration-200 w-full hover:bg-gray-700 bg-[#111213]">
+          <div className="flex items-center">
             <IconHelp className="w-6 h-6 text-gray-400 hover:text-white" />
             {isExpanded && (
-              <span className="text-white text-sm ml-2" style={{ paddingRight: '10px' }}>Help</span>
+              <span className="text-white text-sm ml-2">Help</span>
             )}
           </div>
         </button>
