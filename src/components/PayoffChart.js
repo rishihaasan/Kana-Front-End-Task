@@ -35,10 +35,13 @@ const PayoffChart = () => {
 
   // Chart options
   const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         grid: {
           display: true,
+          color: 'rgba(255, 255, 255, 0.1)',
         },
         ticks: {
           display: false, // Hide x-axis labels
@@ -77,33 +80,31 @@ const PayoffChart = () => {
   };
 
   return (
-    <div className="bg-gray-800 rounded-lg shadow-md">
+    <div className="bg-gray-800 rounded-lg shadow-md p-4">
       {/* Tabs */}
       <div className="flex justify-between items-center mb-4">
         <div className="flex space-x-4">
           <button
             onClick={() => setActiveTab('payoff')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'payoff' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
-            } text-[12px] font-manrope leading-[18px]`}
+              activeTab === 'payoff' ? 'text-white font-bold bg-white/10' : 'text-gray-400 font-normal bg-gray-800'
+            } text-sm font-manrope`}
           >
-            Payoff chart
+            Payoff Chart
           </button>
-
           <button
             onClick={() => setActiveTab('previousCycles')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'previousCycles' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
-            } text-[12px] font-manrope leading-[18px]`}
+              activeTab === 'previousCycles' ? 'text-white font-bold bg-white/10' : 'text-gray-400 font-normal bg-gray-800'
+            } text-sm font-manrope`}
           >
             Previous Cycles
           </button>
-
           <button
             onClick={() => setActiveTab('poolOverview')}
             className={`text-center px-4 py-2 rounded-t-lg ${
-              activeTab === 'poolOverview' ? 'text-white font-bold bg-white-01' : 'text-secondary font-normal bg-gray-800'
-            } text-[12px] font-manrope leading-[18px]`}
+              activeTab === 'poolOverview' ? 'text-white font-bold bg-white/10' : 'text-gray-400 font-normal bg-gray-800'
+            } text-sm font-manrope`}
           >
             Pool Overview
           </button>
@@ -111,35 +112,27 @@ const PayoffChart = () => {
       </div>
 
       {/* Chart */}
-      <div className="relative m-4">
+      <div className="relative h-64">
         <Line data={chartData} options={chartOptions} />
 
         {/* ETH Price inside the chart */}
-        <div className="absolute top-20 transform translate-x-[-50%] right-[calc(50%)] text-white text-center">
-          <div className="text-sm font-manrope font-bold text-[14px] leading-[18px]">
-            ETH Price now
-          </div>
-          <div className="font-bold text-[14px] leading-[18px] font-manrope">
-            $3,512.40
-          </div>
+        <div className="absolute top-1/2 transform -translate-x-1/2 right-1/2 text-white text-center">
+          <div className="text-sm font-manrope font-bold">ETH Price Now</div>
+          <div className="font-bold text-sm">$3,512.40</div>
         </div>
 
         {/* X-axis line */}
-        <div className="absolute bottom-4 left-3 right-3 border-t border-text-color-2" style={{ height: '1px' }} />
+        <div className="absolute bottom-4 left-3 right-3 h-px bg-white/10" />
 
         {/* Vertical line at ETH price */}
-        <div className="absolute right-[calc(50%+16px)] top-12 bottom-4 border-l border-white" style={{ width: '1px' }} />
+        <div className="absolute right-1/2 top-12 bottom-4 w-px bg-white" />
       </div>
 
       {/* Max profit and Entry Price Labels */}
       <div className="m-4 pb-2">
         <div className="text-white">
-          <span className="block text-sm text-secondary text-left text-[14px] font-manrope font-normal leading-[20px]">
-            Max profit
-          </span>
-          <span className="block text-sm text-secondary text-left text-[14px] font-manrope font-normal leading-[20px]">
-            Entry Price (Break-Even)
-          </span>
+          <span className="block text-sm text-gray-400">Max Profit</span>
+          <span className="block text-sm text-gray-400">Entry Price (Break-Even)</span>
         </div>
       </div>
     </div>

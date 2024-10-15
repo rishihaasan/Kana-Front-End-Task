@@ -6,7 +6,7 @@ import 'chartjs-adapter-date-fns';
 import { Chart as ChartJS } from 'react-chartjs-2';
 import annotationPlugin from 'chartjs-plugin-annotation';
 
-// Register chart elements, scales, plugins
+// Register chart elements, scales, and plugins
 Chart.register(CandlestickController, CandlestickElement, OhlcElement, TimeScale, LinearScale, CategoryScale, Tooltip, Legend, annotationPlugin);
 
 const CandlestickChart = () => {
@@ -95,8 +95,8 @@ const CandlestickChart = () => {
         ticks: {
           display: true,
           color: '#FFF',
-          autoSkip: true,  // Automatically skip labels if too many
-          maxTicksLimit: 6,  // Adjust this to limit the number of ticks shown
+          autoSkip: true, // Automatically skip labels if too many
+          maxTicksLimit: 6, // Adjust this to limit the number of ticks shown
         },
       },
       y: {
@@ -112,7 +112,7 @@ const CandlestickChart = () => {
   };
 
   return (
-    <div className="h-80 bg-background rounded-lg shadow-md p-4">
+    <div className="h-80 md:h-96 bg-gray-800 rounded-lg shadow-lg p-4">
       <ChartJS type="candlestick" data={candlestickData} options={options} />
     </div>
   );

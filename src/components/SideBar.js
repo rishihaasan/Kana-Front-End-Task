@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ReactComponent as Icon1 } from '../assets/leftPaneAssets/1.svg';
 import { ReactComponent as Icon2 } from '../assets/leftPaneAssets/2.svg';
 import { ReactComponent as Icon3 } from '../assets/leftPaneAssets/3.svg';
@@ -28,6 +28,23 @@ const Sidebar = ({ handlePageChange }) => {
     { icon: Icon6, label: 'Others', isDropdown: true, page: 'others' },
   ];
 
+  // Retrieve the active icon from sessionStorage on component mount
+  useEffect(() => {
+    const storedActiveIndex = sessionStorage.getItem('activeIconIndex');
+    if (storedActiveIndex !== null) {
+      setActiveIndex(Number(storedActiveIndex));
+    }
+  }, []);
+
+  // Function to handle icon selection
+  const handleIconClick = (index, page) => {
+    setActiveIndex(index);
+    handlePageChange(page);
+
+    // Save the active index to sessionStorage
+    sessionStorage.setItem('activeIconIndex', index);
+  };
+
   return (
     <div
       className={`h-screen bg-gray-900 flex flex-col justify-between ${isExpanded ? 'w-48' : 'w-16'} transition-width duration-300`}
@@ -50,10 +67,7 @@ const Sidebar = ({ handlePageChange }) => {
         {icons.map((item, index) => (
           <div key={index} className="w-full">
             <button
-              onClick={() => {
-                setActiveIndex(index);
-                handlePageChange(item.page);
-              }}
+              onClick={() => handleIconClick(index, item.page)} // Call the new function
               className={`p-2 rounded-md flex items-center justify-center transition-all duration-300 w-full ${
                 index === activeIndex ? 'bg-tab-color' : 'hover:bg-gray-800'
               }`}
@@ -99,8 +113,7 @@ const Sidebar = ({ handlePageChange }) => {
       </div>
 
       <div className={`flex ${isExpanded ? 'justify-start pl-4' : 'justify-center'} mb-4`} style={{ padding: '10px' }}>
-        <button
-          className="p-2 rounded-md transition-all duration-200 w-full hover:bg-gray-700" style={{ backgroundColor: '#111213' }}>
+        <button className="p-2 rounded-md transition-all duration-200 w-full hover:bg-gray-700" style={{ backgroundColor: '#111213' }}>
           <div className="flex items-center" style={{ padding: '5px', borderRadius: '10px' }}>
             <IconHelp className="w-6 h-6 text-gray-400 hover:text-white" />
             {isExpanded && (

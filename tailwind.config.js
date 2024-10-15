@@ -22,7 +22,7 @@ module.exports = {
         'tab-color':'#FFFFFF0F',
         'hover-color':'#1db7d5',
         'secondary-hover-color':'#24b19b',
-        'green':'#12B76A'
+        'color-3':'#12B76A'
       },
       spacing: {
         '10px': '10px',

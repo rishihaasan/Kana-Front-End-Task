@@ -1,27 +1,34 @@
 import React, { useState } from 'react';
 import { ReactComponent as InfoIcon } from '../assets/rightPaneAssets/Frame.svg';
 import { ReactComponent as HelpIcon } from '../assets/rightPaneAssets/message-square.svg';
-import Button from './ButtonComponent'
+import Button from './ButtonComponent';
+
 const BuySellPanel = () => {
   const [activeTab, setActiveTab] = useState('longCall');
 
   return (
     <div className="bg-tab-color rounded-lg shadow-custom-card pb-1">
+      {/* Tabs for Long Call and Long Put */}
       <div className="flex">
         <button
-          className={`w-1/2 p-2 text-center rounded-t-lg ${activeTab === 'longCall' ? 'bg-white/6 font-bold' : 'bg-gray-800'} font-manrope text-sm ${activeTab === 'longCall' ? 'font-extrabold' : 'font-normal'}`}
+          className={`w-1/2 p-2 text-center rounded-t-lg ${
+            activeTab === 'longCall' ? 'bg-white/6 font-extrabold' : 'bg-gray-800 font-normal'
+          } font-manrope text-sm`}
           onClick={() => setActiveTab('longCall')}
         >
           Long Call OPerps
         </button>
         <button
-          className={`w-1/2 p-2 text-center rounded-t-lg ${activeTab === 'longPut' ? 'bg-white/6 font-bold' : 'bg-gray-800'} font-inter text-sm ${activeTab === 'longPut' ? 'font-extrabold' : 'font-normal'}`}
+          className={`w-1/2 p-2 text-center rounded-t-lg ${
+            activeTab === 'longPut' ? 'bg-white/6 font-extrabold' : 'bg-gray-800 font-normal'
+          } font-inter text-sm`}
           onClick={() => setActiveTab('longPut')}
         >
           Long Put OPerps
         </button>
       </div>
 
+      {/* Content for Long Call OPerps */}
       {activeTab === 'longCall' && (
         <div className="m-4 bg-gray-800 border border-stroke rounded-lg p-4">
           <div className="flex justify-between items-center mb-2">
@@ -52,30 +59,34 @@ const BuySellPanel = () => {
         </div>
       )}
 
-      <div className="flex justify-between m-4">
-      <Button className='m-2'
+      {/* Buy and Sell Buttons */}
+      <div className="flex flex-wrap justify-between gap-2 m-4">
+        <Button
           label="Buy"
           onClick={() => console.log('Buying...')}
           variant="primary"
+          className="w-full sm:w-auto flex-1"
         />
-        <Button className='m-2'
+        <Button
           label="Sell"
           onClick={() => console.log('Selling...')}
           variant="secondary"
+          className="w-full sm:w-auto flex-1"
         />
       </div>
 
+      {/* Max Profit, Max Loss, and Additional Info */}
       <div className="m-4 bg-gray-800 border border-stroke rounded-lg p-4">
-        <div className="mt-4 flex justify-between">
-          <div className="w-full mr-2 p-4 rounded-lg bg-topbar-btn backdrop-blur-md">
+        <div className="flex flex-wrap justify-between gap-2">
+          <div className="flex-1 p-4 rounded-lg bg-topbar-btn backdrop-blur-md">
             <div className="flex justify-between items-center">
               <span className="text-xs text-gray-400 font-manrope font-normal">Next Cycle Max Profit</span>
               <InfoIcon className="w-4 h-4 text-gray-400" />
             </div>
-            <div className="text-green-500 font-extrabold font-manrope text-sm">750% ~ $1000</div>
+            <div className="text-teal-500 font-extrabold font-manrope text-sm">750% ~ $1000</div>
           </div>
 
-          <div className="w-full ml-2 p-4 rounded-lg bg-topbar-btn backdrop-blur-md">
+          <div className="flex-1 p-4 rounded-lg bg-topbar-btn backdrop-blur-md">
             <div className="flex justify-between items-center">
               <span className="text-xs text-gray-400 font-manrope font-normal">Next Cycle Max Loss</span>
               <InfoIcon className="w-4 h-4 text-gray-400" />
@@ -84,6 +95,7 @@ const BuySellPanel = () => {
           </div>
         </div>
 
+        {/* Additional Details */}
         <div className="mt-2">
           <div className="flex justify-between">
             <span className="text-xs text-gray-400 font-manrope text-sm">Expected Leverage</span>

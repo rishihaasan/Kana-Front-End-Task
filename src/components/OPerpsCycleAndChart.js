@@ -10,18 +10,18 @@ const OPerpsCycleAndChart = () => {
     timeRemaining: '0:25:59',
     startTime: '9:00 AM',
     endTime: '10:00 AM',
-    progress: 50, // This will represent the percentage of the progress bar (50% here as an example)
+    progress: 50, // Progress percentage for the progress bar
   });
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg shadow-lg border border-gray-700">
       {/* First Section: Current Cycle Info */}
       <div className="mb-2">
-        <div className="flex justify-between items-center">
+        <div className="flex flex-wrap justify-between items-center space-y-2 sm:space-y-0">
           <h4 className="text-sm font-bold font-manrope text-white">
             Current Cycle
           </h4>
-          <div className="flex space-x-8">
+          <div className="flex flex-wrap sm:space-x-8 space-y-2 sm:space-y-0">
             <div className="text-right">
               <span className="block text-xs font-normal text-gray-400 font-manrope">
                 Start Price
@@ -53,7 +53,7 @@ const OPerpsCycleAndChart = () => {
               <span className="block text-xs font-normal text-gray-400 font-manrope">
                 PnL
               </span>
-              <span className="text-sm font-bold text-green-500 font-manrope">
+              <span className="text-sm font-bold text-teal-500 font-manrope">
                 {currentCycle.pnl}
               </span>
             </div>
@@ -65,7 +65,7 @@ const OPerpsCycleAndChart = () => {
       <div className="border-t border-gray-700 my-4"></div>
 
       {/* Second Section: Progress Bar and Times */}
-      <div className="mt-4 mb-4">
+      <div className="my-4">
         <div className="h-2 bg-black rounded-full overflow-hidden">
           <div
             className="h-full bg-primary rounded-full"
@@ -86,7 +86,9 @@ const OPerpsCycleAndChart = () => {
       </div>
 
       {/* Candlestick Chart Section */}
-      <CandlestickChart /> {/* Candlestick Chart integrated here */}
+      <div className="w-full h-[300px] sm:h-[400px]">
+        <CandlestickChart /> {/* Candlestick Chart integrated here */}
+      </div>
     </div>
   );
 };

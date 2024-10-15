@@ -20,18 +20,18 @@ const TopBar = ({ activePage }) => {
   };
 
   return (
-    <div className="flex items-center justify-between w-full p-4 py-5 bg-gray-900 shadow-lg font-manrope rounded-b-md max-w-[94vw] overflow-hidden mx-auto">
+    <div className="flex items-center justify-between w-full px-4 py-3 bg-gray-900 shadow-lg font-manrope rounded-b-md max-w-full overflow-hidden mx-auto">
       <div className="flex items-center">
         {activePage === 'OPerps' && (
           <div className="flex flex-col items-start bg-gray-900 rounded-full py-1">
             <span className="text-xs font-inter text-color-4 leading-[14.52px]">Powered by</span>
-            <img src={EthosLogo} alt="ETHOSX Logo" className="w-20 h-auto" />
+            <img src={EthosLogo} alt="ETHOSX Logo" className="w-auto h-auto max-w-[100px]" />
           </div>
         )}
         {activePage === 'swap' && (
-          <div className="flex items-center space-x-4 bg-grey rounded-lg h-12 px-6 gap-4 backdrop-blur-md opacity-100 justify-center">
-            <span className="text-gray-400 text-[14px] font-bold">Your Balance</span>
-            <span className="text-white text-[14px] font-bold">$12,345</span>
+          <div className="flex items-center space-x-4 bg-grey rounded-lg py-3 px-6 gap-4 backdrop-blur-md opacity-100 justify-center">
+            <span className="text-gray-400 text-sm font-bold">Your Balance</span>
+            <span className="text-white text-sm font-bold">$12,345</span>
           </div>
         )}
       </div>
@@ -39,14 +39,14 @@ const TopBar = ({ activePage }) => {
       <div className="flex items-center justify-end ml-auto space-x-4">
         {activePage === 'OPerps' && (
           <div className="flex items-center space-x-2">
-            <div className="flex items-center space-x-2 bg-grey rounded-lg h-12 px-6 gap-4 backdrop-blur-md opacity-100 cursor-pointer">
+            <div className="hidden sm:flex items-center space-x-2 bg-grey rounded-lg py-3 px-6 gap-4 backdrop-blur-md opacity-100 cursor-pointer">
               <FaucetIcon className="w-6 h-6 text-primary" />
-              <span className="text-white text-[14px] font-bold">Faucet</span>
+              <span className="text-white text-sm font-bold">Faucet</span>
             </div>
 
-            <div className="relative flex items-center bg-grey rounded-lg h-12 px-6 gap-4 backdrop-blur-md opacity-100 cursor-pointer" onClick={toggleDropdown}>
+            <div className="relative flex items-center bg-grey rounded-lg py-3 px-6 gap-4 backdrop-blur-md opacity-100 cursor-pointer" onClick={toggleDropdown}>
               <TestNetIcon className="w-6 h-6 text-primary" />
-              <span className="text-white text-[14px] font-bold">Test net</span>
+              <span className="text-white text-sm font-bold">Test net</span>
               <img src={ChevronDownIcon} alt="Chevron Down" className={`w-4 h-4 transition-transform ${dropdownOpen ? 'rotate-180' : ''}`} />
               {dropdownOpen && (
                 <div className="absolute top-full mt-2 w-full bg-gray-800 rounded-lg shadow-lg z-10">
@@ -59,29 +59,29 @@ const TopBar = ({ activePage }) => {
               )}
             </div>
 
-            <div className="flex items-center space-x-4 bg-grey rounded-lg h-12 px-4  backdrop-blur-md opacity-100">
+            <div className="hidden sm:flex items-center space-x-4 bg-grey rounded-lg py-3 px-4 backdrop-blur-md opacity-100">
               <div className="flex items-center space-x-1">
                 <PointsIcon className="w-6 h-6 text-primary" />
                 <div>
-                  <span className="text-[14px] font-bold text-primary">100</span>
-                  <span className="block text-[12px] text-color-4">Points earned</span>
+                  <span className="text-sm font-bold text-primary">100</span>
+                  <span className="block text-xs text-color-4">Points earned</span>
                 </div>
               </div>
               <div className="h-6 w-px bg-color-4" />
               <div className="flex items-center space-x-1">
                 <ZapIcon className="w-6 h-6 text-primary" />
                 <div>
-                  <span className="text-[14px] font-bold text-primary">2</span>
-                  <span className="block text-[12px] text-color-4">days active</span>
+                  <span className="text-sm font-bold text-primary">2</span>
+                  <span className="block text-xs text-color-4">days active</span>
                 </div>
               </div>
             </div>
           </div>
         )}
 
-        <div className="flex items-center space-x-3 bg-grey rounded-lg h-8 px-4 gap-4 backdrop-blur-md opacity-100">
+        <div className="flex items-center space-x-3 bg-grey rounded-lg py-3 px-4 gap-4 backdrop-blur-md opacity-100">
           <img src={MetaMaskIcon} alt="Wallet" className="w-6 h-6" />
-          <span className="text-white text-[14px] font-bold truncate w-[150px]">0xwalletaddresxyz</span>
+          <span className="text-white text-sm font-bold truncate w-[100px] md:w-[150px]">0xwalletaddresxyz</span>
           <div className="flex items-center justify-center bg-grey rounded-full w-8 h-8 p-2 backdrop-blur-md">
             <ClipboardIcon className="w-4 h-4 text-primary" />
           </div>

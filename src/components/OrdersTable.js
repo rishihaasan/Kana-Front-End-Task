@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ReactComponent as SortIcon } from '../assets/rightPaneAssets/chevron-selector-vertical.svg'; // Import the sort icon SVG
 
+// Sample initial data
 const initialOrders = [
   { time: '1:41:13 PM', date: '12-Mar-24', market: 'ETH', leverage: 'Long', side: 'Buy', amount: 200, timeTillExecution: '02:34' },
   { time: '1:47:13 PM', date: '19-Mar-24', market: 'ETH', leverage: 'Long', side: 'Buy', amount: 200, timeTillExecution: '02:33' },
@@ -33,7 +34,7 @@ const OpenOrdersTable = () => {
 
   const renderSortIcon = (key) => (
     <SortIcon
-      className={`ml-2 w-4 h-4 inline-block ${
+      className={`ml-2 w-4 h-4 inline-block transition-transform ${
         sortConfig && sortConfig.key === key ? (sortConfig.direction === 'ascending' ? 'rotate-180' : '') : ''
       }`}
     />
@@ -74,7 +75,7 @@ const OpenOrdersTable = () => {
                 <div className="text-sm font-manrope font-normal leading-5">{order.market}</div>
                 <div className="flex items-center text-xs font-manrope font-normal leading-4 text-gray-400">
                   <span>Put •</span>
-                  <span className="ml-1 text-green">{order.leverage}</span>
+                  <span className="ml-1 text-teal-500">{order.leverage}</span>
                 </div>
               </td>
               {/* Side */}

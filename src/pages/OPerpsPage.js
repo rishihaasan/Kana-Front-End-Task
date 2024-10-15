@@ -11,9 +11,9 @@ const OPerpsPage = () => {
   return (
     <div className="p-4 text-white bg-background min-h-screen flex flex-col space-y-6">
       {/* Responsive Container */}
-      <div className="flex flex-col lg:flex-row flex-1 space-y-6 lg:space-y-0 lg:space-x-6">
+      <div className="flex flex-col xl:flex-row flex-1 space-y-6 xl:space-y-0 xl:space-x-6">
         {/* Left Side: Cycle and Chart */}
-        <div className="flex-1">
+        <div className="flex-1 space-y-6">
           {/* Asset Selector */}
           <div className="mb-4">
             <AssetSelector selectedAsset={selectedAsset} setSelectedAsset={setSelectedAsset} />
@@ -23,14 +23,18 @@ const OPerpsPage = () => {
           <div>
             <OPerpsCycleAndChart />
           </div>
+
+          {/* Orders Section */}
           <div className="mt-6">
             <OrdersSection />
           </div>
         </div>
 
         {/* Right Side: Buy/Sell Panel */}
-        <div className="w-full lg:w-96">
+        <div className="w-full xl:w-96 space-y-6">
           <BuySellPanel />
+
+          {/* Payoff Chart */}
           <div className="mt-6">
             <PayoffChart />
           </div>
